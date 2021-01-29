@@ -1,7 +1,7 @@
 import Fetch from './Fetch.js';
 
-const work = new Fetch(420, "#aceace"); 
+const work = new Fetch(42, "#79105c"); 
 work.fetch();
 
-const workNot = new Fetch(-666, "#decdff"); 
-workNot.fetch();
+const not = new Fetch(-66, "800bf"); 
+not.fetch();

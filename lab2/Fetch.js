@@ -7,11 +7,11 @@ class Fetch {
     this.color = color;
   }
   fetch(){
-    axios ('https://pokeapi.co/api/v2/pokemon/ + this.pokemon')
-    .then(function (response) {
-      const pokemon = response.data;
-      console.log(chalk.hex(this.color)("This is a " + pokemon.name + " and its ID is " + pokemon.id));
-    })
+    axios ('https://pokeapi.co/api/v2/pokemon/' + this.pokemon)
+      .then(function (response) {
+        const pokemon = response.data;
+        console.log(chalk.hex(this.color)("This is a " + pokemon.name + " and its ID is " + pokemon.id));
+      })
     .catch(function (error) {
       console.log(chalk.red("Error: " + error));
   });
