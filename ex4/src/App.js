@@ -1,7 +1,18 @@
 import HomePage from './components/HomePage';
 
-function App () {
-  return <HomePage firstName="Julia M"/>
+function App (){
+
+  let example = {
+    firstProperty: "This One!",
+    anotherProperty: "Another One!"
+  }
+
+  return (
+    <div>
+      <HomePage firstName="julia" />
+      <p>{example.firstPropertyb }</p>
+    </div> 
+  )
 }
 
 export default App;

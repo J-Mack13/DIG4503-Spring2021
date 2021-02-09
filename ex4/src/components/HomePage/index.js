@@ -1,5 +1,14 @@
 const HomePage = (props) => {
-  return <p>{props.firstName}</p>
+
+  let anotherExample ={
+    examplePropertyName: "this is a thing!"
+  };
+
+  return (
+    <div>
+      <p>{props.firstName}</p>
+    </div>
+  );
 };
 
 export default HomePage;
