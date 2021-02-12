@@ -3,7 +3,7 @@ import React from 'react';
 function MarketItem(props){
   return(
     <div>
-      <p>Items {props.count} </p>
+      <p>Coin {props.count} </p>
     </div>
   );
 }

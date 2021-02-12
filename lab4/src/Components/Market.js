@@ -1,7 +1,7 @@
 import React from 'react';
 import MarketItem from './MarketItem';
 
-class Market extends React.Components {
+class Market extends React.Component {
 
   constructor(props){
     super(props);
@@ -14,14 +14,16 @@ class Market extends React.Components {
         <h2>Click to add coin</h2>
         <button onClick={ ()=> {
           const items = this.state.items;
-          items.push(<MarketItem items={this.state.items}/> );
-          this.setState({items: this.state.items + 1});
+          items.push(<MarketItem key= {items.length} count= {items.length}/> );
+          this.setState({items: items});
         }}>Click Me! I Dare You!</button>
-      </div>{
-        this.state.items.map(function(item) {
-          return <p>{item}</p>
+      <div>
+        {this.state.items.map(function(item) {
+          return <p> {item} </p>
         })
-      } </div>
+        } 
+      </div>
+      </div>
     );
   }
 }

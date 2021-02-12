@@ -1,4 +1,4 @@
-import Market from '.Components/Market.js';
+import Market from './Components/Market.js';
 
 function App() {
   return(
