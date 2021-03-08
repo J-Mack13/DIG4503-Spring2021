@@ -1,0 +1,45 @@
+/* Attempt number one at styling
+.item1 {
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 1);
+  max-width: 30%;
+  margin: auto;
+  text-align: center;
+  padding: 2em;
+}
+
+.text{
+  text-align: center;
+  font-size: 30px;
+}
+*/
+/* Attempt number two at styling
+.button{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+*/
+
+/* Attempt number three at styling */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.4;
+  color: #444;
+  background: #fff;
+  height: 100vh;
+}
+
+/* Still not working but I am no longer getting compiling errors or other errors*/
