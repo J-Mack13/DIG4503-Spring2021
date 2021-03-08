@@ -43,3 +43,5 @@ body {
 }
 
 /* Still not working but I am no longer getting compiling errors or other errors*/
+/* Tried creating indivudal css docs for each component and did the class name thing, did not work*/
+/* Tried moving everything to App.css, did not work, I think maybe it was a path error?*/

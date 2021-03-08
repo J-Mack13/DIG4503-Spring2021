@@ -7,7 +7,7 @@ import Location from '../Location/location.js';
 function Search2(){
   const [search, setSearch] = useState("");
 
-  const [pokemon, setLocation] = useState({name:"N/A", id:"N/A"});
+  const [location, setLocation] = useState({name:"N/A", id:"N/A"});
 
   const [loading, setLoading] = useState(false);
 
@@ -27,7 +27,7 @@ function Search2(){
 
     return (<div>
     <input type="text" onChange={(event) => {
-        setSearch2(event.target.value);
+        setSearch(event.target.value);
       }} />
       <button onClick={() => searchMonstersLocation()}>Search Location!</button>
       {
@@ -38,3 +38,5 @@ function Search2(){
 }
 
 export default Search2;
+
+// line 30 and 36, two new things we underlined as errors, idk when that happend or why
