@@ -20,7 +20,7 @@ function App() {
   }
 
   const getColors = (color) =>{
-    Axios.put("http://localhost:45030/search/a" + color)
+    Axios.get("http://localhost:45030/search/a" + color)
     .then(response => {
       console.log(response.data);
       setSearchResults(response.data.color)
@@ -31,7 +31,7 @@ function App() {
   }
 
   const deleteColor = (color) =>{
-    Axios.put("http://localhost:45030/colors/aqua" + color)
+    Axios.delete("http://localhost:45030/colors/aqua" + color)
     .then(response => {
       console.log(response.data);
     })
