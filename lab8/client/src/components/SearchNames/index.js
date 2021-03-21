@@ -4,7 +4,7 @@ import { useState } from 'react';
 function SearchNames() {
 
   const [searchNames, setSearchNames] = useState("");
-  const [searchResults, setSearchResults] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
 
   const getNames = (name) => {
     Axios.get("http://localhost:45030/search/" + name)
@@ -23,8 +23,11 @@ function SearchNames() {
       <input type="text" onChange={(event) => setSearchNames(event.target.value)}/>
       <button onClick={() => getNames(searchNames)}>Click here to search!</button>
          {
-        searchResults.map((value, index) => {
-          return <p key= {index}>{value}</p>
+           <p>Searched Results {searchResults}</p>
+
+        //Try again at a later date, NOTE the [] has replaced the "" on line 7
+        //searchResults.map((value, index) => {
+          //return <p key= {index}>{value}</p>
         })
       }
     </div>
