@@ -12,7 +12,7 @@ MongoClient.connect(URL, { useUnifiedTopology: true})
     cursor.forEach(document => {
         console.log(document);
     }, () => {
-      //close the connection
+      //remember to close the connection
         connection.close();
     });
 })
