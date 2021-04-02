@@ -18,8 +18,8 @@ App.put("/people/:create", (req, res) => {
 App.get("/people/:person", (req, res) => {
   res.json(
     {person: "Not Found!"}
-  )
-})
+  );
+});
 
 App.listen(port, () => {
     console.log("The Server Is Running!");
