@@ -31,13 +31,14 @@ App.put("/books/:ISBN", async(req, res) => {
 
 App.get("/books/:ISBN", async(req, res) =>{
   const ISBN = req.params.ISBN;
-  //Do I need to add anything else here
-  res.json({book:"not found"});
+  const result = await db.readOne(ISBN);
+  //res.json({book:"not found"});
+  res.json(result);
 });
 
 //THE ONLY THING I AM UNSURE OF AT THE MOMENT
 App.post("books/search", (req, res) => {
-  const ISBN = req.query.ISBN;//URLParameters or query? Leaning towards query
+  const ISBN = req.query.ISBN;
 });
 
 App.patch("/books/:ISBN", async(req, res) =>{

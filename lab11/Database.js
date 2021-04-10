@@ -21,8 +21,8 @@ class Database{
         const result = await this.collection.insertOne({"ISBN": ISBN, 
                                                         "title": title, 
                                                         "author": author, 
-                                                        "description": description})//I did this because readablity -_-;
-        return {"ISBN": ISBN, "title": title, "author": author, "description": description};
+                                                        "description": description});//I did this because readablity -_-;
+        return {result};//NOTE I have changed it to result, NO ERRORS
       } 
       else {
         return null;
@@ -47,6 +47,7 @@ class Database{
     //dont forget await
     if (this.collection !=null) await this.collection.readMany({
       //Idk what to put here
+
     });
     else{
       return {book: "not Found"}
@@ -80,17 +81,17 @@ class Database{
 
   //Do we need to put something inside of the close() on line 66 and 68, UPDATE I DONT THINK SO
   //NOTE I moved close form line 17 to here
+  //
   close(){
-    if(this.connection !=null) {
-      this.connection.close();
+    //if(this.connection !=null) {
+      //this.connection.close();
     }
-  }
-}
+};
 
 export default Database;
 
 
 /*TO-DO List in index.js: close() - I THINK IT IS DONE
-                          readOne()
+                          readOne() - I think it should be done?
                           readMany()
 */
