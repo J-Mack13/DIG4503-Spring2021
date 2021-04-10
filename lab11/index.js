@@ -13,45 +13,41 @@ const db = new Database();
 
 db.connect("lab11", "books");
 
-App.put("/books/:ISBN", (req, res) => {
+App.put("/books/:ISBN", async(req, res) => {
   const ISBN = req.params.ISBN;
   const title = req.body.title;
   const author = req.body.author;
   const description = req.body.description;
-  res.json({
+  //Attempt1
+  /*res.json({
     ISBN: ISBN,
     title: title,
     author: author,
     description: description,
-  });
+  });*/
+  const result = await db.createOne(ISBN, title, author, description);
+  res.json(result);
 });
 
-App.get("/books/:ISBN", (req, res) =>{
+App.get("/books/:ISBN", async(req, res) =>{
   const ISBN = req.params.ISBN;
   //Do I need to add anything else here
   res.json({book:"not found"});
 });
 
 //THE ONLY THING I AM UNSURE OF AT THE MOMENT
-App.post("/books/search", (req, res) =>
-res.json()//URLParameters in the ()????
-)
+App.post("books/search", (req, res) => {
+  const ISBN = req.query.ISBN;//URLParameters or query? Leaning towards query
+});
 
-App.patch("/books/:ISBN", (req, res) =>{
+App.patch("/books/:ISBN", async(req, res) =>{
   const ISBN = req.params.ISBN;
   const title = req.body.title;
   const author = req.body.author;
   const description = req.body.description
-  //Attempt 1
-  /*const result = await db.updateOne(ISBN, title, author, description);
-  res.json(result);*/
-  res.json({
-    ISBN: ISBN,
-    title: title,
-    author: author,
-    description: description,
+  const result = await db.updateOne(ISBN, title, author, description);
+  res.json(result);
   });
-})
 
 App.delete("/books/:ISBN", async(req, res) =>{
   const ISBN = req.params.ISBN;

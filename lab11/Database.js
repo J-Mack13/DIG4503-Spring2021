@@ -15,13 +15,6 @@ class Database{
     this.collection = this.database.collection(collection);
   }
 
-  //Do we need to put something inside of the close() on line 17 and 19, UPDATE I DONT THINK SO
-  close(){
-    if(this.connection !=null) {
-      this.connection.close();
-    }
-  }
-
   async createOne(ISBN, title, author, description){
     //dont forget await
       if (this.collection != null) {
@@ -38,11 +31,26 @@ class Database{
 
   async readOne(ISBN){
     //dont forget await
+    if (this.collection !=null){
+      const result = await this.collection.findOne({
+        "ISBN":ISBN
+      });
+      return {result};
+    }
+    else{
+      return {book: "not Found"}
+    }
 
   }
 
   async readMany(){
     //dont forget await
+    if (this.collection !=null) await this.collection.readMany({
+      //Idk what to put here
+    });
+    else{
+      return {book: "not Found"}
+    }//??
     
   }
 
@@ -52,6 +60,7 @@ class Database{
     if(this.collection !=null){
   //                                                   I dont know if it should be id or ISBN
       const result = await this.collection.updateOne({"ISBN":ISBN}, {$set: {"title": title}, "author": author, "description": description});  
+      return{"title": title, "author": author, "descirption": description};
     }
     else {
       return null;
@@ -66,6 +75,14 @@ class Database{
     }
     else {
       return {"deleted": 0};
+    }
+  }
+
+  //Do we need to put something inside of the close() on line 66 and 68, UPDATE I DONT THINK SO
+  //NOTE I moved close form line 17 to here
+  close(){
+    if(this.connection !=null) {
+      this.connection.close();
     }
   }
 }
