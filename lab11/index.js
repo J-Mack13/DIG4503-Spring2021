@@ -37,8 +37,10 @@ App.get("/books/:ISBN", async(req, res) =>{
 });
 
 //THE ONLY THING I AM UNSURE OF AT THE MOMENT
-App.post("books/search", (req, res) => {
+App.post("books/search", async (req, res) => {
   const ISBN = req.query.ISBN;
+  const result = await db.readMany(ISBN)
+  res.json({URLParameters: req.query.result});
 });
 
 App.patch("/books/:ISBN", async(req, res) =>{

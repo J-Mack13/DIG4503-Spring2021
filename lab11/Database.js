@@ -45,12 +45,14 @@ class Database{
 
   async readMany(){
     //dont forget await
-    if (this.collection !=null) await this.collection.readMany({
-      //Idk what to put here
-
+    if (this.collection !=null) this.collection.find({
+      "ISBN":ISBN,
+      "title": title,
+      "author": author,
+      "description": description
     });
     else{
-      return {book: "not Found"}
+      return {book: "not Found"}//^is any of this right? -_-'
     }//??
     
   }
@@ -83,10 +85,11 @@ class Database{
   //NOTE I moved close form line 17 to here
   //
   close(){
-    //if(this.connection !=null) {
-      //this.connection.close();
+    if(this.connection !=null) {
+      this.connection.close();
     }
-};
+  };
+}
 
 export default Database;
 
