@@ -7,40 +7,35 @@ const port = 45032;
 //I AM USING A DIFFERENT PORT BECAUSE "Error: listen EADDRINUSE: address already in use :::45030"
 
 App.use(Express.json());
-App.use(CORS);
+App.use(CORS());
 
 const db = new Database();
 
 db.connect("lab11", "books");
 
+//THIS WORKS!!!!!!!! YAY LOTR IS NOW IN MONGODB!!!!!!
 App.put("/books/:ISBN", async(req, res) => {
   const ISBN = req.params.ISBN;
   const title = req.body.title;
   const author = req.body.author;
   const description = req.body.description;
-  //Attempt1
-  /*res.json({
-    ISBN: ISBN,
-    title: title,
-    author: author,
-    description: description,
-  });*/
-  const result = await db.createOne(ISBN, title, author, description);
-  res.json(result);
+  const results = await db.createOne(ISBN, title, author, description);
+  res.json(results);
 });
 
 App.get("/books/:ISBN", async(req, res) =>{
-  const ISBN = req.params.ISBN;
-  const result = await db.readOne(ISBN);
-  //res.json({book:"not found"});
-  res.json(result);
+  const ISBN = req.query.ISBN;
+  const results = await db.readOne(ISBN);
+  res.json({book:"not found"});
+  //res.json(results);
 });
 
-//THE ONLY THING I AM UNSURE OF AT THE MOMENT
 App.post("books/search", async (req, res) => {
-  const ISBN = req.query.ISBN;
-  const result = await db.readMany(ISBN)
-  res.json({URLParameters: req.query.result});
+  const title = req.query.title;
+  const author = req.query.author;
+  const results = await db.readMany(title, author);
+  res.json({URLSearchParams: req.query.result});
+  return results;
 });
 
 App.patch("/books/:ISBN", async(req, res) =>{
@@ -48,14 +43,14 @@ App.patch("/books/:ISBN", async(req, res) =>{
   const title = req.body.title;
   const author = req.body.author;
   const description = req.body.description
-  const result = await db.updateOne(ISBN, title, author, description);
-  res.json(result);
+  const results = await db.updateOne(ISBN, title, author, description);
+  res.json(results);
   });
 
 App.delete("/books/:ISBN", async(req, res) =>{
   const ISBN = req.params.ISBN;
-  const result = await db.deleteOne(ISBN);
-  res.json(result);
+  const results = await db.deleteOne(ISBN);
+  res.json(results);
 })
 
 App.listen(port);

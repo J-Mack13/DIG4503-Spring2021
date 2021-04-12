@@ -18,11 +18,11 @@ class Database{
   async createOne(ISBN, title, author, description){
     //dont forget await
       if (this.collection != null) {
-        const result = await this.collection.insertOne({"ISBN": ISBN, 
+        const results = await this.collection.insertOne({"ISBN": ISBN, 
                                                         "title": title, 
                                                         "author": author, 
                                                         "description": description});//I did this because readablity -_-;
-        return {result};//NOTE I have changed it to result, NO ERRORS
+        return {"ISBN": ISBN, "title": title, "author": author, "description": description};
       } 
       else {
         return null;
@@ -32,29 +32,27 @@ class Database{
   async readOne(ISBN){
     //dont forget await
     if (this.collection !=null){
-      const result = await this.collection.findOne({
+      const results = await this.collection.findOne({
         "ISBN":ISBN
       });
-      return {result};
+      return {results};
     }
     else{
       return {book: "not Found"}
     }
-
   }
 
-  async readMany(){
-    //dont forget await
-    if (this.collection !=null) this.collection.find({
-      "ISBN":ISBN,
+  async readMany(title, author){
+    if (this.collection !=null){
+      const results = await this.collection.findMany({ //is find or findMany
       "title": title,
       "author": author,
-      "description": description
-    });
+      });
+      return {"title": title, "author": author};//{book: results};
+    }
     else{
-      return {book: "not Found"}//^is any of this right? -_-'
-    }//??
-    
+      return {books: "not Found"}
+    }
   }
 
   //Change code for BOOK REVIEWS
@@ -62,7 +60,7 @@ class Database{
   async updateOne(ISBN, title, author, description){
     if(this.collection !=null){
   //                                                   I dont know if it should be id or ISBN
-      const result = await this.collection.updateOne({"ISBN":ISBN}, {$set: {"title": title}, "author": author, "description": description});  
+      const results = await this.collection.updateOne({"ISBN":ISBN}, {$set: {"title": title}, "author": author, "description": description});  
       return{"title": title, "author": author, "descirption": description};
     }
     else {
