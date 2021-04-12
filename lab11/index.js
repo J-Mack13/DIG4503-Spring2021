@@ -24,17 +24,17 @@ App.put("/books/:ISBN", async(req, res) => {
 });
 
 App.get("/books/:ISBN", async(req, res) =>{
-  const ISBN = req.query.ISBN;
+  const ISBN = req.params.ISBN;
   const results = await db.readOne(ISBN);
-  res.json({book:"not found"});
-  //res.json(results);
+  //res.json({book:"not found"});
+  res.json(results);
 });
 
 App.post("books/search", async (req, res) => {
   const title = req.query.title;
   const author = req.query.author;
   const results = await db.readMany(title, author);
-  res.json({URLSearchParams: req.query.result});
+  res.json({URLSearchParams: req.query.results});
   return results;
 });
 
@@ -42,10 +42,15 @@ App.patch("/books/:ISBN", async(req, res) =>{
   const ISBN = req.params.ISBN;
   const title = req.body.title;
   const author = req.body.author;
-  const description = req.body.description
-  const results = await db.updateOne(ISBN, title, author, description);
+  const description = req.body.description;
+  const results = await db.updateOne(ISBN, title, author, description); 
   res.json(results);
-  });
+  /*res.json({
+    title: title,
+    author: author,
+    description: description
+  });*/
+});
 
 App.delete("/books/:ISBN", async(req, res) =>{
   const ISBN = req.params.ISBN;

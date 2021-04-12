@@ -32,10 +32,8 @@ class Database{
   async readOne(ISBN){
     //dont forget await
     if (this.collection !=null){
-      const results = await this.collection.findOne({
-        "ISBN":ISBN
-      });
-      return {results};
+      const results = await this.collection.findOne({"ISBN":ISBN}); //is it findOne or find
+      return results; //OR {"ISBN": ISBN}; OR {results}
     }
     else{
       return {book: "not Found"}
@@ -57,13 +55,14 @@ class Database{
 
   //Change code for BOOK REVIEWS
   //?? Should ISBN be included down below ??
-  async updateOne(ISBN, title, author, description){
+  async updateOne(ISBN, title, author, description){ 
     if(this.collection !=null){
-  //                                                   I dont know if it should be id or ISBN
-      const results = await this.collection.updateOne({"ISBN":ISBN}, {$set: {"title": title}, "author": author, "description": description});  
+      const results = await this.collection.updateOne({"ISBN":ISBN}, 
+      {$set: {"title": title}, "author": author, "description": description});  
       return{"title": title, "author": author, "descirption": description};
     }
     else {
+      //return{"title": title, "author": author, "descirption": description};
       return null;
     }
   }
@@ -92,7 +91,7 @@ class Database{
 export default Database;
 
 
-/*TO-DO List in index.js: close() - I THINK IT IS DONE
-                          readOne() - I think it should be done?
+/*TO-DO List in Database.js: close() - I THINK IT IS DONE
+                          readOne() - IT IS DONE
                           readMany()
 */
