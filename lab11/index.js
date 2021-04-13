@@ -23,6 +23,7 @@ App.put("/books/:ISBN", async(req, res) => {
   res.json(results);
 });
 
+//THIS WORKS!!!!!!!!
 App.get("/books/:ISBN", async(req, res) =>{
   const ISBN = req.params.ISBN;
   const results = await db.readOne(ISBN);
@@ -34,7 +35,7 @@ App.post("books/search", async (req, res) => {
   const title = req.query.title;
   const author = req.query.author;
   const results = await db.readMany(title, author);
-  res.json({URLSearchParams: req.query.results});
+  res.json({URLSearchParams:req.query.results});
   return results;
 });
 
@@ -43,7 +44,7 @@ App.patch("/books/:ISBN", async(req, res) =>{
   const title = req.body.title;
   const author = req.body.author;
   const description = req.body.description;
-  const results = await db.updateOne(ISBN, title, author, description); 
+  const results = await db.updateOne(ISBN, title, author, description);//Maybe db.collection.updateOne ?
   res.json(results);
   /*res.json({
     title: title,
@@ -52,6 +53,7 @@ App.patch("/books/:ISBN", async(req, res) =>{
   });*/
 });
 
+//THIS WORKS!!!!!!!!
 App.delete("/books/:ISBN", async(req, res) =>{
   const ISBN = req.params.ISBN;
   const results = await db.deleteOne(ISBN);
@@ -60,4 +62,6 @@ App.delete("/books/:ISBN", async(req, res) =>{
 
 App.listen(port);
 
-//TO-DO List in index.js: App.post
+/*TO-DO index.js: App.post
+                  App.patch
+*/

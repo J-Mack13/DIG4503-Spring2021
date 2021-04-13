@@ -46,20 +46,20 @@ class Database{
       "title": title,
       "author": author,
       });
-      return {"title": title, "author": author};//{book: results};
+      return results;//{book: results};//{"title": title, "author": author};
     }
     else{
       return {books: "not Found"}
     }
   }
 
-  //Change code for BOOK REVIEWS
   //?? Should ISBN be included down below ??
   async updateOne(ISBN, title, author, description){ 
     if(this.collection !=null){
-      const results = await this.collection.updateOne({"ISBN":ISBN}, 
-      {$set: {"title": title}, "author": author, "description": description});  
-      return{"title": title, "author": author, "descirption": description};
+      const results = await this.collection.updateOne({"author":author}, //OR "ISBN":ISBN
+      {$set: {"title": title}, "description": description});  
+      //return{"title": title, "author": author, "descirption": description};
+      return results;
     }
     else {
       //return{"title": title, "author": author, "descirption": description};
@@ -67,7 +67,6 @@ class Database{
     }
   }
 
-  //I dont know if it should be id or ISBN
   async deleteOne(ISBN){
     if(this.collection !=null){
       const result = await this.collection.deleteOne({"ISBN": ISBN});
@@ -78,9 +77,6 @@ class Database{
     }
   }
 
-  //Do we need to put something inside of the close() on line 66 and 68, UPDATE I DONT THINK SO
-  //NOTE I moved close form line 17 to here
-  //
   close(){
     if(this.connection !=null) {
       this.connection.close();
@@ -91,7 +87,10 @@ class Database{
 export default Database;
 
 
-/*TO-DO List in Database.js: close() - I THINK IT IS DONE
-                          readOne() - IT IS DONE
-                          readMany()
+/*TO-DO Database.js:  close() - I THINK IT IS DONE
+                      readOne() - IT IS DONE
+                      deleteOne() - IT IS DONE
+                      readOne() - IT IS DONE
+                      readMany() -
+                      updateOne() -
 */
