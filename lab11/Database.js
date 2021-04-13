@@ -87,10 +87,6 @@ class Database{
 export default Database;
 
 
-/*TO-DO Database.js:  close() - I THINK IT IS DONE
-                      readOne() - IT IS DONE
-                      deleteOne() - IT IS DONE
-                      readOne() - IT IS DONE
-                      readMany() -
+/*TO-DO Database.js:  readMany() -
                       updateOne() -
 */
