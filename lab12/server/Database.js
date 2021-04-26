@@ -33,11 +33,11 @@ class Database{
     //dont forget await
     if (this.collection !=null){
       const result = await this.collection.findOne({"ISBN":ISBN}); //is it findOne or find
-      return result; //OR {"ISBN": ISBN}; OR {results}
-    }
-    else{
-      return {book: "not Found"}
-    }
+      if(result == null) {
+        result = {book: "not found"};
+        }
+        return result;//latest attempt to get "book: 'not found'" to appear instead of null
+    } 
   }
 
   async deleteOne(ISBN){

@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import CreatePart from './components/PutPart';
+import GetPart from './components/GetPart';
+import DeletePart from './components/DeletePart';
+
+//Rember to add the PUT, GET, and DELETE code
+//Note to self refer back to Lab8 or Lab11 if stuck
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CreatePart/>
+
+        <br/>
+
+      <GetPart/>
+
+        <br/>
+
+      <DeletePart/>
     </div>
   );
 }
-
-export default App;
+export default App; 

@@ -3,8 +3,9 @@ import CORS from 'cors';
 import Database from './Database.js';
 
 const App = Express();
-const port = 45032;
-//I AM USING A DIFFERENT PORT BECAUSE "Error: listen EADDRINUSE: address already in use :::45030"
+const port = 45033;
+//I AM USING A DIFFERENT PORT BECAUSE "Error: listen EADDRINUSE: address already in use :::45032"
+//I am using the same port from lab11, it works thankfully. 
 
 App.use(Express.json());
 App.use(CORS());
@@ -13,7 +14,7 @@ const db = new Database();
 
 db.connect("lab11", "books");
 
-//THIS WORKS!!!!!!!! YAY LOTR IS NOW IN MONGODB!!!!!!
+//THIS WORKS!!!!!!!! YAY THE EXPANSE BOOKS ARE NOW IN MONGODB!!!!!!
 App.put("/books/:ISBN", async(req, res) => {
   const ISBN = req.params.ISBN;
   const title = req.body.title;
@@ -37,3 +38,15 @@ App.delete("/books/:ISBN", async(req, res) =>{
 })
 
 App.listen(port);
+
+/*ERROR NOTES:
+    -getting a mongodb error when starting the server code.
+      +solution: re-installed mongodb, it looks like it fixed it.
+    -nodemon is chrashing a lot, remeber to trouble shot.
+      +
+*/   
+
+/* POTENTIAL REASONS WHY GET IS NOT WORKING:
+    -Query
+    -
+ */
