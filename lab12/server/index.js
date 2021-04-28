@@ -24,6 +24,7 @@ App.put("/books/:ISBN", async(req, res) => {
   res.json(results);
 });
 
+//try query next, NOTE reference the profs YT video the example helps.
 App.get("/books/:ISBN", async(req, res) =>{
   const ISBN = req.params.ISBN;
   const result = await db.readOne(ISBN);
