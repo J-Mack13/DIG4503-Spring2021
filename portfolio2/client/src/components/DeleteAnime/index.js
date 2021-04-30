@@ -11,7 +11,7 @@ const[licensors, setLicensors] = useState("");
 const[source, setSource] = useState("");
 
 const deleteAnime = async() => {
-  const response = await Axios.delete("http://localhost:45033/Animes/" + number, {
+  const response = await Axios.delete("http://localhost:45034/Animes/" + number, {
     title:title,
     licensors:licensors,
     source:source
