@@ -3,7 +3,7 @@ import CORS from 'cors';
 import Database from './Database.js';
 
 const App = Express();
-const port = 45034;
+const port = 45035;
 //I AM USING A DIFFERENT PORT BECAUSE "Error: listen EADDRINUSE: address already in use :::45033"
 //Note I am using a different port than lab 12.
 
