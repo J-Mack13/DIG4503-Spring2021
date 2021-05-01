@@ -1,5 +1,37 @@
 .App {
   text-align: center;
+  background-image: url("https://i.pinimg.com/originals/43/1d/d8/431dd8f59cbe5b439ae8ba83b15e4a08.jpg?q=60");
+  /*background-color: #98b484;*/
+}
+
+.Button {
+  padding: 10px;
+  /*color: #ffffff;*/
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #caddd9;
+  outline-style: double, white;
+  color: #3a4f4b;
+}
+
+.Question{
+  font-size: 21px;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  /*font-style: bold;*/
+  color: #a1c4bd;
+}
+
+.Submit{
+  font-size: 13px;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: #97b8b1;
+}
+
+.Input{
+  font-size: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 2px;
+  margin-left: 5px;
 }
 
 .App-logo {
@@ -14,14 +46,15 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  /*background-image: 'url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzseU_pzdinePkCrQ9eW5PW4oyAe_quc3aeo9tWFtyS1vX56E4eu2HZg7aNgBxenZyO2U&usqp=CAU")';*/
+ /* background-color: #98b484;*/
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #98b484;
 }
 
 .App-link {

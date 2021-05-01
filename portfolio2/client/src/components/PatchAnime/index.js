@@ -21,21 +21,21 @@ const patchAnime = async() => {
 
 return(
   <div>
-    <p>Edit your favorite Anime here.</p>
-    <input type = "text" placeholder= "Type Title Here" 
+    <p class="Question">Edit your favorite Anime here.</p>
+    <input class="Input" type = "text" placeholder= "Title Here" 
       value={title} onChange={(event) => setTitle(event.target.value)}/>
 
-    <input type = "text" placeholder="Type licensors Name Here" 
+    <input class="Input" type = "text" placeholder="Licensors Name Here" 
       value={licensors} onChange={(event) => setLicensors(event.target.value)}/>
 
-    <input type = "text" placeholder= "Type number Here" 
+    <input class="Input" type = "text" placeholder= "Number Here" 
       value={number} onChange={(event) => setNumber(event.target.value)}/>
 
-    <input type = "text" placeholder="Type the source Here" 
+    <input class="Input" type = "text" placeholder="Source Here" 
       value={source} onChange={(event) => setSource(event.target.value)}/>
 
-    <p>Edit the Anime.</p>
-    <button onClick = {() => {patchAnime()}}>Click the Button</button>
+    <p class="Submit">Edit the Anime</p>
+    <button class="Button" onClick = {() => {patchAnime()}}>Edit</button>
     </div>
   );
 }

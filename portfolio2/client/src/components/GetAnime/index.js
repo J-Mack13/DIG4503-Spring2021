@@ -22,21 +22,21 @@ const getAnime = async() => {
 
 return(
   <div>
-    <p>Get a Anime here.</p>
-    <input type = "text" placeholder= "Type Title Here" 
+    <p class="Question">Get a Anime here.</p>
+    <input class="Input" type = "text" placeholder= "Title Here" 
       value={title} onChange={(event) => setTitle(event.target.value)}/>
 
-    <input type = "text" placeholder="Type Licensors Name Here" 
+    <input class="Input" type = "text" placeholder="Licensors Name Here" 
       value={licensors} onChange={(event) => setLicensors(event.target.value)}/>
 
-    <input type = "text" placeholder= "Type number Here" 
+    <input class="Input" type = "text" placeholder= "Number Here" 
       value={number} onChange={(event) => setNumber(event.target.value)}/>
 
-    <input type = "text" placeholder="Type the source Here" 
+    <input class="Input" type = "text" placeholder="Source Here" 
       value={source} onChange={(event) => setSource(event.target.value)}/>
 
-    <p>Get the Anime</p>
-    <button onClick = {() => {getAnime()}}>Click Me</button>
+    <p class="Submit">Get the Anime</p>
+    <button class="Button" onClick = {() => {getAnime()}}>Get</button>
     </div>
   );
 }
