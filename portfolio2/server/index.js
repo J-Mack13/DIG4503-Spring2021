@@ -32,7 +32,6 @@ App.get("/anime/:number", async(req, res) =>{
   const result = await db.readOne(number);
   res.json(result);
 });
-//try query next, NOTE reference the profs YT video the example helps.
 
 //This has been updated, GO TEST IT
 //Does PATCH work? ... 
@@ -43,11 +42,6 @@ App.patch("/anime/:number", async(req, res) =>{
   const source = req.body.source;
   const results = await db.updateOne(number, title, licensors, source);//Maybe db.collection.updateOne ?
   res.json(results);
-  /*res.json({
-    title: title,
-    licensors: licensors,
-    sourcee: source
-  });*/
 });
 
 //This has been updated, GO TEST IT
@@ -60,14 +54,3 @@ App.delete("/anime/:number", async(req, res) =>{
 
 App.listen(port);
 
-/*ERROR NOTES:
-    -getting a mongodb error when starting the server code.
-      +solution: re-installed mongodb, it looks like it fixed it.
-    -nodemon is chrashing a lot, remeber to trouble shoot.
-      +
-*/   
-
-/* POTENTIAL REASONS WHY GET IS NOT WORKING:
-    -Query
-    -
- */

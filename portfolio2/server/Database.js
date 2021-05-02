@@ -44,10 +44,10 @@ class Database{
 //PATCH  
   async updateOne(number, title, licensors, source){ 
     if(this.collection !=null){
-      const results = await this.collection.updateOne({"licensors":licensors}, 
-      {$set: {"title": title}, "source": source});  
-      //return{"title": title, "licensors": licensors, "descirption": source};
-      return results;
+      const results = await this.collection.updateOne({"number":number}, 
+      {$set: {"title": title, "source": source, "licensors":licensors}});  
+      return{"title": title, "licensors": licensors, "source": source};
+      //return results;
     }
     else {
       //return{"title": title, "licensors": licensors, "descirption": source};
