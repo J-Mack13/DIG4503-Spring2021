@@ -15,7 +15,7 @@ const db = new Database();
 db.connect("portfolio2", "JuliaMurphy");
 
 //This has been updated, GO TEST IT
-//Does PUT work? ... 
+//Does PUT work? ... YES!
 App.put("/anime/:number", async(req, res) => {
   const number = req.params.number;
   const title = req.body.title;
@@ -26,7 +26,7 @@ App.put("/anime/:number", async(req, res) => {
 });
 
 //This has been updated, GO TEST IT
-//Does GET work? ... 
+//Does GET work? ... YES!
 App.get("/anime/:number", async(req, res) =>{
   const number = req.params.number;
   const result = await db.readOne(number);
@@ -51,7 +51,7 @@ App.patch("/anime/:number", async(req, res) =>{
 });
 
 //This has been updated, GO TEST IT
-//Does DELETE work? ... 
+//Does DELETE work? ... YES!
 App.delete("/anime/:number", async(req, res) =>{
   const number = req.params.number;
   const results = await db.deleteOne(number);

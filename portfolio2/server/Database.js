@@ -33,18 +33,18 @@ class Database{
 //GET    
   async readOne(number){
     if (this.collection !=null){
-      const result = await this.collection.findOne({"number":number}); //is it findOne or find
+      let result = await this.collection.findOne({"number":number}); 
       if(result == null) {
         result = {book: "not found"};
         }
-        return result;//latest attempt to get "book: 'not found'" to appear instead of null
+        return result;
     } 
   }
 
 //PATCH  
   async updateOne(number, title, licensors, source){ 
     if(this.collection !=null){
-      const results = await this.collection.updateOne({"licensors":licensors}, //OR "number":number
+      const results = await this.collection.updateOne({"licensors":licensors}, 
       {$set: {"title": title}, "source": source});  
       //return{"title": title, "licensors": licensors, "descirption": source};
       return results;

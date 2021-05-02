@@ -11,7 +11,7 @@ const[licensors, setLicensors] = useState("");
 const[source, setSource] = useState("");
 
 const patchAnime = async() => {
-  const response = await Axios.put("http://localhost:45035/Animes/" + number, {
+  const response = await Axios.put("http://localhost:45035/anime/" + number, {
     title:title,
     licensors:licensors,
     source:source
@@ -21,21 +21,21 @@ const patchAnime = async() => {
 
 return(
   <div>
-    <p class="Question">Edit your favorite Anime here.</p>
-    <input class="Input" type = "text" placeholder= "Title Here" 
+    <p className="Question">Edit your favorite Anime here.</p>
+    <input className="Input" type = "text" placeholder= "Title Here" 
       value={title} onChange={(event) => setTitle(event.target.value)}/>
 
-    <input class="Input" type = "text" placeholder="Licensors Name Here" 
+    <input className="Input" type = "text" placeholder="Licensors Name Here" 
       value={licensors} onChange={(event) => setLicensors(event.target.value)}/>
 
-    <input class="Input" type = "text" placeholder= "Number Here" 
+    <input className="Input" type = "text" placeholder= "Number Here" 
       value={number} onChange={(event) => setNumber(event.target.value)}/>
 
-    <input class="Input" type = "text" placeholder="Source Here" 
+    <input className="Input" type = "text" placeholder="Source Here" 
       value={source} onChange={(event) => setSource(event.target.value)}/>
 
-    <p class="Submit">Edit the Anime</p>
-    <button class="Button" onClick = {() => {patchAnime()}}>Edit</button>
+    <p className="Submit">Edit the Anime</p>
+    <button className="Button" onClick = {() => {patchAnime()}}>Edit</button>
     </div>
   );
 }

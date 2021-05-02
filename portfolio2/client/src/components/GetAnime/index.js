@@ -12,7 +12,7 @@ const[licensors, setLicensors] = useState("");
 const[source, setSource] = useState("");
 
 const getAnime = async() => {
-  const response = await Axios.get("http://localhost:45035/Animes/" + number, {
+  const response = await Axios.get("http://localhost:45035/anime/" + number, {
     title:title,
     licensors:licensors,
     source:source
@@ -22,21 +22,21 @@ const getAnime = async() => {
 
 return(
   <div>
-    <p class="Question">Get a Anime here.</p>
-    <input class="Input" type = "text" placeholder= "Title Here" 
+    <p className="Question">Get a Anime here.</p>
+    <input className="Input" type = "text" placeholder= "Title Here" 
       value={title} onChange={(event) => setTitle(event.target.value)}/>
 
-    <input class="Input" type = "text" placeholder="Licensors Name Here" 
+    <input className="Input" type = "text" placeholder="Licensors Name Here" 
       value={licensors} onChange={(event) => setLicensors(event.target.value)}/>
 
-    <input class="Input" type = "text" placeholder= "Number Here" 
+    <input className="Input" type = "text" placeholder= "Number Here" 
       value={number} onChange={(event) => setNumber(event.target.value)}/>
 
-    <input class="Input" type = "text" placeholder="Source Here" 
+    <input className="Input" type = "text" placeholder="Source Here" 
       value={source} onChange={(event) => setSource(event.target.value)}/>
 
-    <p class="Submit">Get the Anime</p>
-    <button class="Button" onClick = {() => {getAnime()}}>Get</button>
+    <p className="Submit">Get the Anime</p>
+    <button className="Button" onClick = {() => {getAnime()}}>Get</button>
     </div>
   );
 }
